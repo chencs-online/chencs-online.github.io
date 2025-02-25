@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用 Linux 命令</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .command-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .command {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .command:last-child {
+            border-bottom: none;
+        }
+        .command:hover {
+            background: #f0f0f0;
+        }
+        .copy-btn {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>常用 Linux 命令</h2>
+    <div class="command-container">
+        <div class="command" onclick="copyCommand('ls')">
+            <span>列出当前目录文件: <code>ls</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+        <div class="command" onclick="copyCommand('pwd')">
+            <span>显示当前路径: <code>pwd</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+        <div class="command" onclick="copyCommand('cd ..')">
+            <span>返回上级目录: <code>cd ..</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+        <div class="command" onclick="copyCommand('mkdir new_folder')">
+            <span>创建新目录: <code>mkdir new_folder</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+        <div class="command" onclick="copyCommand('rm -rf folder')">
+            <span>删除目录: <code>rm -rf folder</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+        <div class="command" onclick="copyCommand('ps aux')">
+            <span>显示运行进程: <code>ps aux</code></span>
+            <button class="copy-btn">复制</button>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                alert('已复制: ' + command);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
